@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/DarkGrey"
+    tools:context=".ui.home.HomeFragment"
+    >
+
+    <!-- staticText--> the UI for the home page. All individual elements are identifiable by their ID.
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginLeft="3dp"
+        android:layout_marginTop="30dp"
+        android:src="@drawable/ic_collar_tie"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toEndOf="@+id/home_collar"
+        app:layout_constraintTop_toTopOf="parent" />
+    <TextView
+        android:id="@+id/home_collar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:layout_marginTop="20dp"
+        android:text="Collar"
+        android:textColor="@color/Green"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/home_search"
+        android:layout_width="38dp"
+        android:layout_height="38dp"
+        android:layout_marginRight="20dp"
+        android:background="@drawable/ic_search"
+        android:layout_marginTop="25dp"
+        app:layout_constraintVertical_bias="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toEndOf="@+id/imageView"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/home_post_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="72dp"
+        android:scaleType="center"
+        android:src="@drawable/ic_plus"
+        app:backgroundTint="@color/Green"
+        app:fabSize="normal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1"
+        app:layout_constraintStart_toStartOf="parent"
+        app:maxImageSize="40dp"
+        app:rippleColor="@color/DarkGrey"
+        app:tint="@color/white" />
+
+
+    <Button
+        android:id="@+id/home_following"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="#00000000"
+        android:minHeight="0dp"
+        android:text="Following"
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/home_trending"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_collar"
+        app:layout_constraintVertical_bias="0" />
+
+    <View
+        android:id="@+id/home_following_selected"
+        android:layout_width="205dp"
+        android:layout_height="1dp"
+        android:layout_marginEnd="1dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/home_following"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_following"
+        app:layout_constraintVertical_bias="0"/>
+
+    <Button
+        android:id="@+id/home_trending"
+        android:layout_width="205dp"
+        android:layout_height="wrap_content"
+        android:background="#00000000"
+        android:text="Trending"
+        android:alpha=".5"
+        android:textStyle="bold"
+        android:minHeight="0dp"
+        android:layout_marginTop="10dp"
+        app:layout_constraintVertical_bias="0"
+        android:textColor="@color/LightGrey"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_collar"
+        android:textAllCaps="false"/>
+
+    <View
+        android:id="@+id/home_trending_selected"
+        android:layout_width="205dp"
+        android:layout_height="1dp"
+        android:visibility="invisible"
+        android:layout_marginEnd="1dp"
+        android:background="@color/Green"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/home_following_selected"
+        app:layout_constraintTop_toBottomOf="@+id/home_following"
+        app:layout_constraintVertical_bias="0" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_following_posts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_following_selected"
+        app:layout_constraintVertical_bias="0"
+        android:layout_marginBottom="66dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"/>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/home_trending_posts"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginBottom="66dp"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/home_following_selected"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/home_not_following_message"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="30dp"
+        android:layout_marginEnd="30dp"
+        android:layout_marginTop="20dp"
+        android:visibility="gone"
+        android:gravity="center"
+        android:textColor="@color/Green"
+        android:textStyle="italic"
+        android:text="Looks like you're not following anybody! Press the search icon to find users"
+        android:textSize="18dp"
+        android:lineSpacingExtra="5dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_following_posts" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
